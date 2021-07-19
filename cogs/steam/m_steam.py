@@ -76,9 +76,12 @@ class Steam(commands.Cog):
             sys_requirements = details["pc_requirements"]["minimum"]
             sys_requirements_embed = discord.Embed(title='Minimum System Requirements', color=0x1b2838)
             for i in [f'{i}:</strong>' for i in ['OS', 'Processor', 'Memory', 'Graphics']]:
-                temp = sys_requirements[sys_requirements.index(i) + len(i):]
-                sys_requirements_embed.add_field(name=i[:i.index(':')], value=temp[:temp.index('<br>')].replace('&amp;', '&'), inline=True)
-        except (IndexError, KeyError, ValueError) as e:
+                try:
+                    temp = sys_requirements[sys_requirements.index(i) + len(i):]
+                    sys_requirements_embed.add_field(name=i[:i.index(':')], value=temp[:temp.index('<br>')].replace('&amp;', '&'), inline=True)
+                except ValueError:
+                    continue
+        except (IndexError, KeyError) as e:
             sys_requirements_embed = discord.Embed(title=':warning: An Error Occurred', description='notes: system requirements parsing failed, probably due to non-standard formatting', color=0x1b2838)
 
         if details["is_free"]:
@@ -98,7 +101,7 @@ class Steam(commands.Cog):
         info_page = discord.Embed(title=details["name"], url=rf'https://store.steampowered.com/app/{details["steam_appid"]}', description=details["short_description"], color=0x1b2838)
 
         info_page.set_image(url=details["header_image"])
-        info_page.set_author(name=', '.join(details["developers"]) if 'developers' in details.keys() else ', '.join(details["publishers"]), url=details["website"], icon_url=ctx.author.avatar_url)
+        info_page.set_author(name=', '.join(details["developers"]) if 'developers' in details.keys() else ', '.join(details["publishers"]), url=details["website"] if details["website"] else 'https://store.steampowered.com/', icon_url=ctx.author.avatar_url)
         info_page.set_footer(icon_url=r'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png', text='Data from Steam')
         info_page.add_field(name='Release Date', value=f'Soon ({details["release_date"]["date"]})' if details["release_date"]["coming_soon"] else details["release_date"]["date"], inline=True)
         info_page.add_field(name='Genres', value=', '.join([i["description"] for i in details["genres"]]), inline=True)
