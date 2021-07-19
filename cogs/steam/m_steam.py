@@ -96,7 +96,7 @@ class Steam(commands.Cog):
             except KeyError:
                 price = 'Not Available'
 
-        menu = ButtonsMenu(ctx, menu_type=ButtonsMenu.TypeEmbed, timeout=300)
+        menu = ButtonsMenu(ctx, menu_type=ButtonsMenu.TypeEmbed, timeout=300, all_can_click=True)
 
         info_page = discord.Embed(title=details["name"], url=rf'https://store.steampowered.com/app/{details["steam_appid"]}', description=details["short_description"], color=0x1b2838)
 
