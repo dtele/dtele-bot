@@ -78,7 +78,7 @@ class Steam(commands.Cog):
             for i in [f'{i}:</strong>' for i in ['OS', 'Processor', 'Memory', 'Graphics']]:
                 try:
                     temp = sys_requirements[sys_requirements.index(i) + len(i):]
-                    sys_requirements_embed.add_field(name=i[:i.index(':')], value=temp[:temp.index('<br>')].replace('&amp;', '&'), inline=True)
+                    sys_requirements_embed.add_field(name=i[:i.index(':')], value=temp[:temp.index('<br>')].replace('&amp;', '&'), inline=False)
                 except ValueError:
                     continue
         except (IndexError, KeyError) as e:
