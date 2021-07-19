@@ -30,6 +30,15 @@ bot.remove_command('help')
 
 
 @bot.event
+async def on_message(msg):
+    ctx = await bot.get_context(msg)
+    if 'bruh' in msg.content and not msg.author.bot:
+        await ctx.send('bruh')
+
+    await bot.process_commands(msg)
+
+
+@bot.event
 async def on_ready():
     print(f'{bot.user.name} online\nServers: {", ".join([i.name for i in list(bot.guilds)])}')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=keys["activity"]))
