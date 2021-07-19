@@ -1,8 +1,8 @@
 # coding: utf-8
 
 import json
-from os import getcwd
 import sys
+from os import getcwd
 
 import discord
 from discord.ext import commands
