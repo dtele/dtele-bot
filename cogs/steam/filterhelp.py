@@ -53,7 +53,7 @@ class FilterHelp(commands.Cog):
 
             for slide in slides:
                 slide.set_author(name='', icon_url=ctx.author.avatar_url)
-                slide.set_footer(icon_url=r'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png', text=')
+                slide.set_footer(icon_url=r'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png', text='Data from Steam')
                 menu.add_page(slide)
 
             await menu.start(send_to=ctx.channel)
