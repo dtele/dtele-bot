@@ -2,13 +2,13 @@
 
 import json
 import sys
-from os import getcwd
+from os import getcwd, listdir
 
 import discord
 from discord.ext import commands
 from reactionmenu import ButtonsMenu, ComponentsButton
 
-cogs_to_path = [sys.path.append(rf'{getcwd()}\cogs\{i}') for i in os.listdir(rf'{getcwd()}\cogs')]
+cogs_to_path = [sys.path.append(rf'{getcwd()}\cogs\{i}') for i in listdir(rf'{getcwd()}\cogs')]
 
 from filterhelp import FilterHelp
 from m_steam import Steam
