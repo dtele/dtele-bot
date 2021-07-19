@@ -91,7 +91,7 @@ class Steam(commands.Cog):
                 else:
                     price = price["final_formatted"]
             except KeyError:
-                price = 'Unavailable'
+                price = 'Not Available'
 
         menu = ButtonsMenu(ctx, menu_type=ButtonsMenu.TypeEmbed, timeout=300)
 
