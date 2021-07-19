@@ -34,7 +34,7 @@ bot.remove_command('help')
 @bot.event
 async def on_message(msg):
     ctx = await bot.get_context(msg)
-    text = sub('https?:\/\/\S+\.com\/\S+\/\S+', '', msg.content)
+    text = sub('https?:\/\/\S+\.\w+\/\S+\/\S+', '', msg.content)
     if not msg.author.bot:
         if 'bruh' in text:
             await ctx.send('bruh')
