@@ -3,6 +3,8 @@
 import json
 import sys
 from os import getcwd, listdir
+from random import randrange
+from re import sub
 
 import discord
 from discord.ext import commands
@@ -32,8 +34,12 @@ bot.remove_command('help')
 @bot.event
 async def on_message(msg):
     ctx = await bot.get_context(msg)
-    if 'bruh' in msg.content and not msg.author.bot:
-        await ctx.send('bruh')
+    text = sub('https?:\/\/\S+\.com\/\S+\/\S+', '', msg.content)
+    if not msg.author.bot:
+        if 'bruh' in text:
+            await ctx.send('bruh')
+        elif '69' in text:
+            await ctx.send(f'{":rofl:" * randrange(1, 4 + 1)} {"lo" * randrange(3, 8 + 1) + "l"} 69 {":thumbsup:" * randrange(1, 4 + 1)}')
 
     await bot.process_commands(msg)
 
