@@ -19,7 +19,7 @@ class Tmdb(commands.Cog):
         if len(search_result) > 0:
             movie = self.sesh.get(f'https://api.themoviedb.org/3/movie/{search_result[0]["id"]}?api_key={self.key}').json()
 
-            movie_embed = discord.Embed(title=f'{movie["title"]} ({movie["release_date"].split("-")[0]})', url=f'https://www.themoviedb.org/movie/{movie["id"]}', description=movie["overview"], color=0x01d473)
+            movie_embed = discord.Embed(title=f'{movie["title"]} ({movie["release_date"].split("-")[0]})', url=f'https://www.themoviedb.org/movie/{movie["id"]}', description=movie["overview"], color=0x90cea1)
             movie_embed.set_thumbnail(url=f'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{movie["poster_path"][1:]}')
             movie_embed.set_footer(icon_url='https://themoviedb.org/assets/2/v4/icons/mstile-144x144-30e7905a8315a080978ad6aeb71c69222b72c2f75d26dab1224173a96fecc962.png', text='Data from TMDb')
             movie_embed.add_field(name='Genre(s)', value=', '.join([i["name"] for i in movie["genres"]]) if movie["genres"] else 'Not Available', inline=True)
