@@ -15,6 +15,7 @@ from m_steam import Steam
 from webster import Dictionary
 from tmdb import Tmdb
 
+
 with open('preferences.json', 'r') as file:
     keys = json.load(file)
 
