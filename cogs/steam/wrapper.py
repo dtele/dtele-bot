@@ -59,15 +59,15 @@ class Filters:
 
 class Search:
     def __init__(self) -> None:
-        pass
+        self.sesh = requests.Session()
 
     def search(self, search_term: str, full_link=False):
         results = []
 
         if not full_link:
-            search_req = requests.get(rf'https://store.steampowered.com/search/?term={search_term}')
+            search_req = self.sesh.get(rf'https://store.steampowered.com/search/?term={search_term}')
         else:
-            search_req = requests.get(search_term)
+            search_req = self.sesh.get(search_term)
 
         if search_req.ok:
             soup = BeautifulSoup(search_req.text, 'html.parser')
