@@ -1,8 +1,8 @@
-# coding: utf-8
-
 import json
 import sys
 from os import getcwd, listdir
+from random import randrange
+from re import sub
 
 import discord
 from discord.ext import commands
@@ -15,12 +15,12 @@ from m_steam import Steam
 from webster import Dictionary
 from tmdb import Tmdb
 
-
 with open('preferences.json', 'r') as file:
     keys = json.load(file)
 
 prefix = keys["prefix"]
 bot = commands.Bot(command_prefix=prefix)
+ButtonsMenu.initialize(bot=bot)
 
 bot.add_cog(Steam(bot, prefix))
 bot.add_cog(FilterHelp(bot, prefix))
@@ -39,8 +39,13 @@ async def on_ready():
 @bot.event
 async def on_message(msg):
     ctx = await bot.get_context(msg)
-    if 'bruh' in msg.content and not msg.author.bot:
-        await ctx.send('bruh')
+    text = sub('https?:\/\/\S+\.\w+\/\S+\/\S+', '', msg.content)
+    if not msg.author.bot:
+        if 'bruh' in text:
+            await ctx.send('bruh')
+        elif '69' in text:
+            await ctx.send(
+                f'{":rofl:" * randrange(1, 4 + 1)} {"lo" * randrange(3, 8 + 1) + "l"} 69 {":thumbsup:" * randrange(1, 4 + 1)}')
 
     await bot.process_commands(msg)
 
