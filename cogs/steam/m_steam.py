@@ -27,7 +27,7 @@ class Steam(commands.Cog):
 
         elif msg.content == self.prefix + 'help fsteam':
             await ctx.send('```\nArguments: region (positional, unspaced), search_term, discounted, tags, types, player_number, supported_os, supported_languages\n'
-                           'Example: +fsteamar search_term=stellaris;tags=[4x, space];supported_os=[windows, mac os x]```')
+                           'Example: +fsteamar tags=[4x, strategy];discounted=True```')
 
         elif msg.content.startswith(self.prefix + 'steam'):
             cc = msg.content.split(' ')[0][6:]
