@@ -112,7 +112,7 @@ class Steam(commands.Cog):
 
         menu.add_page(info_page)
 
-        for screenshot in details["screenshots"]:
+        for screenshot in details["screenshots"][:10 - 1]:
             temp_page = deepcopy(info_page)
             temp_page.set_image(url=screenshot["path_full"])
 
