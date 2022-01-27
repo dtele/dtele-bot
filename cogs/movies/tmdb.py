@@ -13,9 +13,13 @@ class Tmdb(commands.Cog):
         self.key = tmdb_key
 
     @commands.command()
-    async def tmdb(self, ctx, *term: str):
-        term = ' '.join(term)
-        search_result = self.sesh.get(f'https://api.themoviedb.org/3/search/movie?api_key={self.key}&query={requote_uri(term)}&include_adult=false').json()["results"]
+    async def tmdb(self, ctx, *user_text: str):
+        user_text = ' '.join(user_text)
+        args = user_text.split(':')
+        year = args[-1] if len(args) > 1 else None
+        term = args[0]
+
+        search_result = self.sesh.get(f'https://api.themoviedb.org/3/search/movie?api_key={self.key}&query={requote_uri(term)}&include_adult=false{"&year=" + year if year else ""}').json()["results"]
         if len(search_result) > 0:
             movie = self.sesh.get(f'https://api.themoviedb.org/3/movie/{search_result[0]["id"]}?api_key={self.key}').json()
 
