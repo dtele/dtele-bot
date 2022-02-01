@@ -16,7 +16,7 @@ A discord bot that helps you share your favorite movies and games with your frie
     Example: steamus edith finch
     ```
 
-    ![steam](https://github.com/dtele/dtele-bot/blob/add_images/screenies/steam.png?raw=true)
+    ![steam](https://raw.githubusercontent.com/dtele/dtele-bot/main/screenies/steam.png)
 
 - **fsteam**
 
@@ -28,7 +28,7 @@ A discord bot that helps you share your favorite movies and games with your frie
     Example: fsteamar tags=[4x, strategy];discounted=True;player_number=co-op
     ```
     
-    ![fsteam](https://github.com/dtele/dtele-bot/blob/add_images/screenies/fsteam.png?raw=true)
+    ![fsteam](https://raw.githubusercontent.com/dtele/dtele-bot/main/screenies/fsteam.png)
 
 - **filterhelp**
     
@@ -40,7 +40,7 @@ A discord bot that helps you share your favorite movies and games with your frie
     Example: filterhelp tags
     ```
     
-    ![filterhelp](https://github.com/dtele/dtele-bot/blob/add_images/screenies/filterhelp.png?raw=true)
+    ![filterhelp](https://raw.githubusercontent.com/dtele/dtele-bot/main/screenies/filterhelp.png)
 
 ### TMDb
 
@@ -54,4 +54,4 @@ A discord bot that helps you share your favorite movies and games with your frie
     Example: tmdb killer sofa
     ```
     
-    ![tmdb](https://github.com/dtele/dtele-bot/blob/add_images/screenies/tmdb.png?raw=true)
+    ![tmdb](https://raw.githubusercontent.com/dtele/dtele-bot/main/screenies/tmdb.png)
