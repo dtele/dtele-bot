@@ -46,7 +46,7 @@ A discord bot that helps you share your favorite movies and games with your frie
 
 - **tmdb**
 
-    Sends the top search result from tmdb as a search result.
+    Sends the top search result from tmdb as an embed.
 
     ```
     Parameters: search_term
